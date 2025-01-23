@@ -1,0 +1,71 @@
+<%= form_with model: patient, local: true do |form| %>
+  <div>
+    <%= form.label :first_name, "First Name*" %>
+    <%= form.text_field :first_name, class: "p-3 m-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", id: "patient_first_name" %>
+    <% if patient.errors[:first_name].any? %>
+      <p id="first_name_error" class="text-red-500 text-xs mt-1"><%= patient.errors[:first_name].join(", ") %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, "Last Name*" %>
+    <%= form.text_field :last_name, class: "p-3 m-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", id: "patient_last_name" %>
+    <% if patient.errors[:last_name].any? %>
+      <p id="last_name_error" class="text-red-500 text-xs mt-1"><%= patient.errors[:last_name].join(", ") %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :email, "Email*" %>
+    <%= form.email_field :email, class: "p-3 m-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", id: "patient_email" %>
+    <% if patient.errors[:email].any? %>
+      <p id="email_error" class="text-red-500 text-xs mt-1"><%= patient.errors[:email].join(", ") %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_birth, "Date of Birth" %>
+    <%= form.date_field :date_of_birth, class: "p-3 m-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", id: "patient_date_of_birth" %>
+    <% if patient.errors[:date_of_birth].any? %>
+      <p id="date_of_birth_error" class="text-red-500 text-xs mt-1"><%= patient.errors[:date_of_birth].join(", ") %></p>
+    <% end %>
+  </div>
+
+<div>
+  <%= form.label :next_appointment_date, "Next Appointment Date" %>
+  <%= form.datetime_select :next_appointment_date, 
+       { include_blank: true, 
+         default: nil, 
+         class: "p-3 m-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", 
+         id: "patient_next_appointment_date" } %>
+  <% if patient.errors[:next_appointment_date].any? %>
+    <p id="next_appointment_date_error" class="text-red-500 text-xs mt-1">
+      <%= patient.errors[:next_appointment_date].join(", ") %>
+    </p>
+  <% end %>
+</div>
+
+
+  <div class="form-actions mt-6">
+    <%= form.submit "Create", class: "bg-green-500 hover:bg-green-700 text-white px-6 py-3 rounded-md focus:outline-none" %>
+  </div>
+<% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const fields = ["first_name", "last_name", "email", "date_of_birth", "next_appointment_date"];
+
+    fields.forEach(function(field) {
+      const inputElement = document.getElementById(`patient_${field}`);
+      const errorElement = document.getElementById(`${field}_error`);
+
+      if (inputElement) {
+        inputElement.addEventListener("keyup", function() {
+          if (errorElement) {
+            errorElement.style.display = "none"; 
+          }
+        });
+      }
+    });
+  });
+</script>

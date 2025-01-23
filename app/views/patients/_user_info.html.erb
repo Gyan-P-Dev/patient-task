@@ -1,0 +1,4 @@
+<div class="user-info flex items-center justify-between border-gray-400 pl-4 w-full">
+  <span class="text-gray-700 text-lg"><%= current_user.email %></span>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "button logout-button bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded" %>
+</div>

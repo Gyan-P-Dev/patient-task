@@ -1,0 +1,13 @@
+<div class="bg-white shadow-2xl rounded-lg mx-auto mt-6 p-8 w-full max-w-5xl border border-gray-300">
+  <div class="bg-white-600 text-white p-4 flex justify-between items-center">
+    <%= render 'patients/user_info' %>
+  </div>
+
+  <div class="mt-8">
+    <h1 class="text-2xl font-semibold text-gray-700 mb-6">Add Patient</h1>
+
+    <%= render 'form', patient: @patient %>
+
+    <%= link_to "Back to Patients", patients_path, class: "button back-button bg-gray-300 hover:bg-gray-400 text-gray-700 px-4 py-2 rounded mt-4 inline-block" %>
+  </div>
+</div>
