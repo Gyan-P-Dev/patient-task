@@ -1,29 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
 This guide will help you set up and run this Rails application on your local machine.
 
 Prerequisites
@@ -49,3 +25,6 @@ Access the Application
 
 To test run following command in terminal
     rspec
+
+
+NOTE:- if you get any tailwind css error in assets please run rails assets:precompile before running rails server
